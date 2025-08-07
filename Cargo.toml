@@ -1,0 +1,24 @@
+[package]
+name = "mandelbrot_viewer"
+version = "0.1.0"
+edition = "2024"
+default-run = "main"
+
+[dependencies]
+macroquad = "0.4.14"
+rayon = "1.10.0"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = "debuginfo"
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
+
+[[bin]]
+name = "benchmark"
+path = "src/benchmark.rs"
